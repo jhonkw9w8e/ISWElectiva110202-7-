@@ -6,7 +6,7 @@ import ActualizarStock from "./pages/ActualizarStock";
 import FormularioUsuario from "./components/FormularioUsuario";
 import RegistroForm from "./components/RegistroForm";
 import InventarioList from "./components/InventarioList";
-import GeneradorReporteForm from "./GeneradorReporteForm";
+import GeneradorReporteForm from "./components/GeneradorReporteForm";
 import InformeList from "./components/InformeList";
 
 const App = () => {
