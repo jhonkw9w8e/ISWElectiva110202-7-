@@ -1,13 +1,11 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import FormularioProducto from "./components/FormularioProducto";
 import Inicio from "./pages/Inicio";
 import ActualizarStock from "./pages/ActualizarStock";
-import FormularioUsuario from "./components/FormularioUsuario";
-import RegistroForm from "./RegistroForm";
-import InventarioList from "./InventarioList";
-import GeneradorReporteForm from "./GeneradorReporteForm";
-import InformeList from "./InformeList";
+import InventarioList from "./components/InventarioList";
+import RegistrarProducto from "./pages/RegistrarProducto";
+import RegistrarUsuario from "./pages/RegistrarUsuario";
+import HistorialTransferencias from "./pages/HistorialTransferencias";
 
 const App = () => {
   return (
@@ -20,13 +18,14 @@ const App = () => {
       </p>
       <Routes>
         <Route path="/" element={<Inicio />} />
-        <Route path="/crear-producto" element={<FormularioProducto />} />
+        <Route path="/crear-producto" element={<RegistrarProducto />} />
         <Route path="/actualizar-stock" element={<ActualizarStock />} />
-        <Route path="/registrar-usuario" element={<FormularioUsuario />} />
-        <Route path="/registro-formulario" element={<RegistroForm />} />
+        <Route path="/registrar-usuario" element={<RegistrarUsuario />} />
         <Route path="/lista-inventario" element={<InventarioList />} />
-        <Route path="/generar-reporte" component={GeneradorReporteForm} />
-        <Route path="/informes" component={InformeList} />
+        <Route
+          path="/historial-transferencias"
+          element={<HistorialTransferencias />}
+        />
       </Routes>
     </div>
   );
