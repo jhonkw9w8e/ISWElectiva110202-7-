@@ -31,13 +31,13 @@ jobs:
           cd Backend
 
       - name: Install dependencies
-        run: cd Backend
+        run: cd Plataforma-Gestion-inventario/Backend
           pip install -r requirements.txt
 
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Zip artifact for deployment
-        run: cd Backend
+        run: cd Plataforma-Gestion-inventario/Backend
           zip release.zip ./* -r
 
       - name: Upload artifact for deployment jobs
@@ -45,7 +45,7 @@ jobs:
         with:
           name: python-app
           path: |
-            Backend/release.zip
+            Plataforma-Gestion-inventario/Backend/release.zip
             !venv/
 
   deploy:
