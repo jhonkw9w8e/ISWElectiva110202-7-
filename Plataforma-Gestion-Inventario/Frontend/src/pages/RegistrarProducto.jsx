@@ -1,8 +1,7 @@
 import React from "react";
-import MovimientoStock from "../components/MovimientoStock";
+import FormularioProducto from "../components/FormularioProducto";
 import { Link } from "react-router-dom";
-
-export default function ActualizarStock() {
+export default function RegistrarProducto() {
   return (
     <main className="flex flex-col items-center min-h-screen p-4 bg-[#CCE6CC]">
       <div>
@@ -37,7 +36,9 @@ export default function ActualizarStock() {
           </ul>
         </nav>
       </div>
-      <MovimientoStock />
+      <div>
+        <FormularioProducto />
+      </div>
     </main>
   );
 }
