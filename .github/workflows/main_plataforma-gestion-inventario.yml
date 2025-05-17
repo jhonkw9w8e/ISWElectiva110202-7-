@@ -57,10 +57,10 @@ jobs:
       name: "Production"
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     env:
-      PGNAME: ${{  secrets.PGHOST }}
+      PGNAME: ${{  secrets.PGDATABASE }}
       PGUSER: ${{ secrets.PGUSER  }}
       PGPASSWORD: ${{   secrets.PGPASSWORD }}
-      PGHOST: ${{  secrets.PGDATABASE  }}
+      PGHOST: ${{  secrets.PGHOST  }}
       PGPORT: ${{ secrets.PGPORT  }}
 
     steps:
