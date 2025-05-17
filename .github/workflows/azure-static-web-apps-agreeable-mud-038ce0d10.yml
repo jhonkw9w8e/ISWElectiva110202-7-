@@ -29,7 +29,7 @@ jobs:
       - name: Install dependencies and build
         working-directory: Plataforma-Gestion-Inventario/Frontend
         env:
-          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+          VITE_API_URL: ${{ secrets.VITEAPIURL }}
         run: |
           npm ci
           npm run build
