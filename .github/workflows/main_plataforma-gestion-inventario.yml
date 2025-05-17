@@ -56,6 +56,13 @@ jobs:
     environment:
       name: "Production"
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    env:
+      PGNAME: ${{  secrets.PGHOST }}
+      PGUSER: ${{ secrets.PGUSER  }}
+      PGPASSWORD: ${{   secrets.PGPASSWORD }}
+      PGHOST: ${{  secrets.PGDATABASE  }}
+      PGPORT: ${{ secrets.PGPORT  }}
+
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
