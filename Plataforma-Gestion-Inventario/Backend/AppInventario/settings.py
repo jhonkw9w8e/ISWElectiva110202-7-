@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-%+xou3q$#9e3k_w(5x^%2zd779ryv4vum=yv4y0kp6bgv*(du6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'plataforma-gestion-inventario-a3affwf6bhesabak.canadacentral-01.azurewebsites.net'
+]
 
 
 # Application definition
