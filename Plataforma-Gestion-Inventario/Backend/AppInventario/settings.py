@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -89,11 +88,12 @@ WSGI_APPLICATION = 'AppInventario.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':os.getenv('PGDATABASE'),
-        'USER':os.getenv('PGUSER'),
-        'PASSWORD':os.getenv('PGPASSWORD'),
-        'HOST':os.getenv('PGHOST'),
-        'PORT':os.getenv('PGPORT','5432'),
+        'NAME':'postgres',
+         'USER':'postgresadmin',
+        'PASSWORD':'password8*9',
+        'HOST':'plataforma-gestion-inventario-servidor.postgres.database.azure.com',
+        'PORT':'5432',
+        'PGSSLMODE':'require'  
     }
 }
 
