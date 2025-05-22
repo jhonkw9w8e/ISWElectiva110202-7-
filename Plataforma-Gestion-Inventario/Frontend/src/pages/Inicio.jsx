@@ -30,6 +30,12 @@ export default function Inicio() {
           <li>
             <Link to="/historial-transferencias">Historial Transferencias</Link>
           </li>
+          <li>
+            <Link to="/visualizar-movimientos">Visualizar Movimientos</Link>
+          </li>
+          <li>
+            <Link to="/registro-categoriaProducto">Categorias Productos</Link>
+          </li>
         </ul>
       </nav>
     </div>

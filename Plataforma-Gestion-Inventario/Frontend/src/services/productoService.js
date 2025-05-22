@@ -73,3 +73,8 @@ export const getProductoPorCategoria = async (categoriaId) => {
 
   return response.data;
 };
+
+export const buscarProducto = async (query) => {
+  const response = await axios.get(`${API_URL}/productos/buscar/?q=${query}`);
+  return response.data;
+};

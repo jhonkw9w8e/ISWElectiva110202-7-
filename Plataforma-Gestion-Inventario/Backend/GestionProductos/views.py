@@ -4,6 +4,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import Producto, CategoriaProducto
 from .serializers import ProductoSerializer, CategoriaProductoSerializer
+from django.db.models import Q
+
 
 # Create your views here.
 class ProductoListCreateAPIView(APIView):
@@ -96,3 +98,14 @@ class CategoriaProductoDetailAPIView(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
         categoria.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+    
+class BuscarProductoView(APIView):
+    def get(self, request):
+        query = request.GET.get('q', '')
+        producto = Producto.objects.filter(
+            Q(nombre__icontains=query) | Q(codigo__icontains=query)
+        ).first()
+        if producto:
+            serializer = ProductoSerializer(producto)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response({"error": "Producto no encontrado"}, status=status.HTTP_404_NOT_FOUND)

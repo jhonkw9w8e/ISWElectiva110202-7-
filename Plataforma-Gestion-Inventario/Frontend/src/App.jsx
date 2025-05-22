@@ -6,6 +6,8 @@ import InventarioList from "./components/InventarioList";
 import RegistrarProducto from "./pages/RegistrarProducto";
 import RegistrarUsuario from "./pages/RegistrarUsuario";
 import HistorialTransferencias from "./pages/HistorialTransferencias";
+import RegistroCategoria from "./pages/RegistroCategoria";
+import VisualizarMovimientos from "./components/VisualizarMovimientos";
 
 const App = () => {
   return (
@@ -25,6 +27,11 @@ const App = () => {
         <Route
           path="/historial-transferencias"
           element={<HistorialTransferencias />}
+        />
+        <Route path="/registro-categoria" element={<RegistroCategoria />} />
+        <Route
+          path="/visualizar-movimientos"
+          element={<VisualizarMovimientos />}
         />
       </Routes>
     </div>
