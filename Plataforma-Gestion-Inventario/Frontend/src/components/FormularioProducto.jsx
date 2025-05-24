@@ -170,7 +170,7 @@ const FormularioProducto = () => {
 
   return (
     <div className="min-h-screen bg-white flex justify-center items-center p-4">
-      <div className="w-full max-w-3xl bg-[#CCE6CC] border-2 border-black rounded-lg p-6">
+      <div className="w-full max-w-3xl bg-[#ffffff] border-2 border-black rounded-lg p-6">
         <form onSubmit={handleSubmit} className="space-y-4">
           <h1 className="border-2 border-black rounded-lg p-6 font-bold uppercase text-center text-xl mb-4 text-[#FFA500]">
             FORMULARIO DE REGISTRO DE PRODUCTOS
