@@ -83,11 +83,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME':'postgres',
-         'USER':'postgresadmin',
+        'USER':'postgresadmin@plataforma-gestion-inventario-servidor',
         'PASSWORD':'password8*9',
         'HOST':'plataforma-gestion-inventario-servidor.postgres.database.azure.com',
         'PORT':'5432',
-        'PGSSLMODE':'require'  
     }
 }
 
