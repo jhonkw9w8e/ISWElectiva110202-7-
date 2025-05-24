@@ -82,11 +82,11 @@ WSGI_APPLICATION = 'AppInventario.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'postgres',
-        'USER':'postgresadmin@plataforma-gestion-inventario-servidor',
-        'PASSWORD':'password8*9',
-        'HOST':'plataforma-gestion-inventario-servidor.postgres.database.azure.com',
-        'PORT':'5432',
+        'NAME':'Plataforma_Gestion_Inventario',
+        'USER':'postgres',
+        'PASSWORD':'postgres',
+        'HOST':'localhost',
+        'PORT':'5432'
     }
 }
 
@@ -124,7 +124,6 @@ USE_TZ = True
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
-    'https://agreeable-mud-038ce0d10.6.azurestaticapps.net'
 ]
 
 CORS_ALLOW_CREDENTIALS = True
