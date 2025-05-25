@@ -29,7 +29,10 @@ jobs:
         env:
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
       - name: Build the app
-        run: npm run build
+        run: |
+          npm ci
+          npm run build
+        working-directory: Plataforma-Gestion-Inventario/Frontend
       - name: Install OIDC Client from Core Package
         run: npm install @actions/core@1.6.0 @actions/http-client
       - name: Get Id Token
