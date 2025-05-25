@@ -22,16 +22,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "22.11.0"
+          node-version: "22"
       - name: Install dependencies
         run: npm install
         working-directory: Plataforma-Gestion-Inventario/Frontend
         env:
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
       - name: Build the app
-        run: |
-          npm ci
-          npm run build
+        run: npm run build
       - name: Install OIDC Client from Core Package
         run: npm install @actions/core@1.6.0 @actions/http-client
       - name: Get Id Token
