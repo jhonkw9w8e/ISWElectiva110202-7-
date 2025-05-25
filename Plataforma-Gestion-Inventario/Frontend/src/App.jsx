@@ -1,4 +1,7 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
+import ProductoPage from "./pages/productoPage";
+
 const App = () => {
   return (
     <div className="bg-[#CCE6CC]">
@@ -8,6 +11,7 @@ const App = () => {
       <p className="flex justify-center items-center">
         Bienvenido a nuestra Plataforma de Gestion de Inventario de Almacen
       </p>
+      <ProductoPage />
     </div>
   );
 };
