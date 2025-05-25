@@ -22,7 +22,7 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v5
         with:
-          python-version: "3.13"
+          python-version: "3.11"
 
       - name: Create and start virtual environment
         run: |
@@ -32,16 +32,13 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd Plataforma-Gestion-Inventario/Backend
           pip install --upgrade pip
-          pip install -r requirements.txt
-
+          pip install -r Plataforma-Gestion-Inventario/Backend/requirements.txt
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
-
       - name: Zip artifact for deployment
         run: |
           cd Plataforma-Gestion-Inventario/Backend
-          zip release.zip ./* -r
+          zip -r release.zip .
 
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v4
