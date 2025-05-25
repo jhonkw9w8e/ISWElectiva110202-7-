@@ -124,7 +124,7 @@ USE_TZ = True
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
-    'https://polite-pebble-059fd381e.6.azurestaticapps.net/'
+    'https://white-ground-09362fa10.6.azurestaticapps.net'
 ]
 
 CORS_ALLOW_CREDENTIALS = True
