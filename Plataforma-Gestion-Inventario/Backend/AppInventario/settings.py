@@ -24,11 +24,7 @@ SECRET_KEY = 'django-insecure-%+xou3q$#9e3k_w(5x^%2zd779ryv4vum=yv4y0kp6bgv*(du6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    'plataforma-gestion-inventario-a3affwf6bhesabak.canadacentral-01.azurewebsites.net'
-]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -82,11 +78,11 @@ WSGI_APPLICATION = 'AppInventario.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'postgres',
-        'USER':'plataforma-gestion-inventario-servidor',
-        'PASSWORD':'password8*9',
-        'HOST':'plataforma-gestion-inventario-servidor.postgres.database.azure.com',
-        'PORT':'5432',
+        'NAME':'Plataforma_Gestion_Inventario',
+        'USER':'postgres',
+        'PASSWORD':'postgres',
+        'HOST':'localhost',
+        'PORT':'5432'
     }
 }
 
@@ -124,7 +120,6 @@ USE_TZ = True
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
-    'https://agreeable-mud-038ce0d10.6.azurestaticapps.net'
 ]
 
 CORS_ALLOW_CREDENTIALS = True
