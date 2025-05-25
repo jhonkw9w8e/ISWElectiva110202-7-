@@ -29,7 +29,8 @@ jobs:
         env:
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
       - name: Build the app
-        run: ci
+        run: |
+          npm ci
           npm run build
       - name: Install OIDC Client from Core Package
         run: npm install @actions/core@1.6.0 @actions/http-client
