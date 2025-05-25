@@ -33,6 +33,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd Plataforma-Gestion-Inventario/Backend
+          pip install --upgrade pip
           pip install -r requirements.txt
 
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
