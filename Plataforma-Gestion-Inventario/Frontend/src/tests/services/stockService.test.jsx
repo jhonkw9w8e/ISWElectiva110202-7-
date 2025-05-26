@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getStockByProducto } from "./stockService";
+import { getStockByProducto } from "../components/stockService";
 
 jest.mock("axios");
 

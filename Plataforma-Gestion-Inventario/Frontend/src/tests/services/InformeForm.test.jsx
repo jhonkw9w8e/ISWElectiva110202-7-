@@ -1,5 +1,5 @@
 import { render, fireEvent, waitFor } from "@testing-library/react";
-import InformeForm from "./InformeForm";
+import InformeForm from "../components/InformeForm";
 
 vi.mock("../services/informeService", () => ({
   createInforme: () => Promise.resolve({}),

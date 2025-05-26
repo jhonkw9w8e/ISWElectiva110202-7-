@@ -1,5 +1,5 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import MovimientoStockForm from "./MovimientoStockForm";
+import MovimientoStockForm from "../components/MovimientoStockForm";
 import * as service from "../services/movimientoStockService";
 
 jest.mock("../services/movimientoStockService");

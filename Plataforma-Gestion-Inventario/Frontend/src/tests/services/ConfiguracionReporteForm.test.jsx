@@ -1,5 +1,5 @@
 import { render, fireEvent, waitFor } from "@testing-library/react";
-import ConfiguracionReporteForm from "./ConfiguracionReporteForm";
+import ConfiguracionReporteForm from "../components/ConfiguracionReporteForm";
 
 vi.mock("../services/configuracionReporteService", () => ({
   createConfiguracionReporte: () => Promise.resolve({}),
