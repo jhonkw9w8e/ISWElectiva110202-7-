@@ -1,9 +1,7 @@
 import React from "react";
-import BuscarProductos from "../components/crudProductosComponents/BuscarProductos";
+import FormularioProducto from "../../components/crudProductosComponents/FormularioProducto";
 import { Link } from "react-router-dom";
-import VisualizarMovimientos from "../components/VisualizarMovimientos";
-
-export default function VisualizarMovimiento() {
+export default function RegistrarProducto() {
   return (
     <main className="flex flex-col items-center min-h-screen p-4 bg-[#CCE6CC]">
       <div>
@@ -38,7 +36,9 @@ export default function VisualizarMovimiento() {
           </ul>
         </nav>
       </div>
-      <VisualizarMovimientos />
+      <div>
+        <FormularioProducto />
+      </div>
     </main>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import RegistrarTransferencias from "../components/RegistrarTransferencias";
+import RegistrarTransferencias from "../components/crudMovimientosComponents/RegistrarTransferencias";
 import { Link } from "react-router-dom";
 export default function HistorialTransferencias() {
   return (
