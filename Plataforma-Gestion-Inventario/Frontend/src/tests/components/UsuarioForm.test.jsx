@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import UsuarioForm from "../components/UsuarioForm";
+import UsuarioForm from "../../components/FormularioUsuario";
 import { vi } from "vitest";
 
 vi.mock("../services/usuarioService", () => ({

@@ -11,7 +11,7 @@ describe("App component", () => {
       </BrowserRouter>
     );
     expect(
-      getByText("Plataforma de Gestión de Inventario de Almacen")
+      getByText("Plataforma de Gestion de Inventario de Almacen")
     ).toBeDefined();
     expect(
       screen.getByText(
