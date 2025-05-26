@@ -14,7 +14,7 @@ describe("App component", () => {
       getByText("Plataforma de Gestión de Inventario de Almacen")
     ).toBeDefined();
     expect(
-      getByText(
+      screen.getByText(
         "Bienvenido a nuestra Plataforma de Gestion de Inventario de Almacen"
       )
     ).toBeDefined();
