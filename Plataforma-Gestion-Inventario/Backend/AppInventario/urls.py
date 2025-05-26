@@ -32,6 +32,6 @@ urlpatterns = [
     path('api/inventario/',include(GestionInventario_urls)),
     path('api/generador/',include(Generador_Reportes_urls)),
     path('api/informe/',include(GestionReportes_urls)),
-    path('api/transferencias',include(GestionMovimientos_urls)),
-    path('api/almacenes',include(transferenciasAlmacenes_urls))
+    path('api/transferencias/',include(GestionMovimientos_urls)),
+    path('api/almacenes/',include(transferenciasAlmacenes_urls))
 ]
