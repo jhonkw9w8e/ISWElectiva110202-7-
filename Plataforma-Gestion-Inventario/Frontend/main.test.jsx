@@ -17,6 +17,6 @@ describe("Main entry renders App Correctly", () => {
           <App />
         </BrowserRouter>
       );
-    });
+    }).not.toThrow();
   });
 });
