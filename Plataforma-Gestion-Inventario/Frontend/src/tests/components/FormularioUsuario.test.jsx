@@ -1,15 +1,15 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import * as UsuarioService from "../../services/usuarioService";
+import FormularioUsuario from "../../components/FormularioUsuario";
 import { vi } from "vitest";
 
-vi.mock("../../services/usuarioService", () => ({
+vi.mock("../../components/FormularioUsuario", () => ({
   getUsuarios: vi.fn().mockResolvedValue([]),
   getRoles: vi.fn().mockResolvedValue([]),
 }));
 
-describe("UsuarioForm", () => {
+describe("FormularioUsuario", () => {
   it("muestra mensaje si contraseña es muy corta", async () => {
-    render(<UsuarioForm />);
+    render(<FormularioUsuario />);
     fireEvent.change(screen.getByPlaceholderText(/contraseña/i), {
       target: { value: "123" },
     });
