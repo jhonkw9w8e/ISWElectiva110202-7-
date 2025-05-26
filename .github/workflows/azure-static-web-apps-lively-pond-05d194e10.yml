@@ -30,6 +30,10 @@ jobs:
         run: |
           npm ci
           npm run build
+      - name: Run frontend tests
+        working-directory: Plataforma-Gestion-Inventario/Frontend
+        run: |
+          npm run test
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1

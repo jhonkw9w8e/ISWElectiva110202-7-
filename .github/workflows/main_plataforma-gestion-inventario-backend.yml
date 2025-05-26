@@ -35,6 +35,11 @@ jobs:
         run: |
           cd Plataforma-Gestion-Inventario/Backend
           pip install -r requirements.txt
+      - name: Run tests
+        run: |
+          source venv/bin/activate
+          coverage run manage.py test
+          coverage report
 
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
