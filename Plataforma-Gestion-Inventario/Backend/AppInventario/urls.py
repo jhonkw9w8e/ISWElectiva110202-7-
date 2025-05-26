@@ -16,22 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from GestionProductos import urls as GestionProductos_urls
-from GestionUsuarios import urls as GestionUsuarios_urls
-from GestionMovimientos import urls as GestionMovimientos_urls
-from GestionReportes import urls as GestionReportes_urls
-from GestionInventario import urls as GestionInventario_urls
-from Generador_Reportes import urls as Generador_Reportes_urls
-from transferenciasAlmacenes import urls as transferenciasAlmacenes_urls
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/producto/',include(GestionProductos_urls)),
-    path('api/usuario/',include(GestionUsuarios_urls)),
-    path('api/stock/',include(GestionMovimientos_urls)),
-    path('api/movimiento/',include(GestionMovimientos_urls)),
-    path('api/inventario/',include(GestionInventario_urls)),
-    path('api/generador/',include(Generador_Reportes_urls)),
-    path('api/informe/',include(GestionReportes_urls)),
-    path('api/transferencias/',include(GestionMovimientos_urls)),
-    path('api/almacenes/',include(transferenciasAlmacenes_urls))
 ]
