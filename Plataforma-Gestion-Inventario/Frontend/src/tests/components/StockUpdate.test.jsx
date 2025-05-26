@@ -1,10 +1,10 @@
 import React from "react";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 import "@testing-library/jest-dom";
 import StockUpdate from "./StockUpdate";
 import * as stockService from "../services/stockService";
 
-jest.mock("../services/stockService");
+vi.mock("../services/stockService");
 
 describe("<StockUpdate />", () => {
   const fakeStock = { cantidad: 10, stock_minimo: 1, umbral_minimo: 2 };
