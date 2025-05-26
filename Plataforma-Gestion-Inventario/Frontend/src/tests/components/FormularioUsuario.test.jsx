@@ -1,11 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import FormularioUsuario from "../../components/FormularioUsuario";
-import { vi } from "vitest";
-
-vi.mock("../../components/FormularioUsuario", () => ({
-  getUsuarios: vi.fn().mockResolvedValue([]),
-  getRoles: vi.fn().mockResolvedValue([]),
-}));
 
 describe("FormularioUsuario", () => {
   it("muestra mensaje si contraseña es muy corta", async () => {
