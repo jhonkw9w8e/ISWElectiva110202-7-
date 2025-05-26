@@ -90,7 +90,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME':'postgres',
-        'USER':'postgresadmin',
+        'USER':'postgresadminuser',
         'PASSWORD':'password8*9',
         'HOST':'plataforma-gestion-inventario-postgresql.postgres.database.azure.com',
         'PORT':'5432'
