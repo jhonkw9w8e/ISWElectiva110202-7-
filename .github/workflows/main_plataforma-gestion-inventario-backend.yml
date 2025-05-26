@@ -80,6 +80,8 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_5DC3184EA53F4848B599878969C12FCB }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_DBD2BFB831574F4EBC31D181A72775BB }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_5153DFD4D04C47E4B777E95E448B0F74 }}
+      - name: Esperar antes del despliegue (evita reinicio SCM)
+        run: sleep 15
 
       - name: "Deploy to Azure Web App"
         uses: azure/webapps-deploy@v3
