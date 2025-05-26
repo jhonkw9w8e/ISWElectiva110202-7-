@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getHistorialTransferenciasService } from "../../services/HistorialTransferenciasService";
+import { getHistorialTransferenciasService } from "../../services/crudServicesMovimientos/HistorialTransferenciasService";
 
 const RegistrarTransferencias = () => {
   const [movimientos, setMovimientos] = useState([]);

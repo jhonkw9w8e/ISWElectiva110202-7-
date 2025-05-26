@@ -1,5 +1,5 @@
 import React from "react";
-import FormularioUsuario from "../components/crudUsuarioComponents/FormularioUsuario";
+import FormularioUsuario from "../../components/crudUsuarioComponents/FormularioUsuario";
 import { Link } from "react-router-dom";
 export default function RegistrarUsuario() {
   return (

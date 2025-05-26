@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
   updateStockProducto,
   getStockProducto,
-} from "../services/actualizarStockService";
+} from "../../services/crudServicesStock/actualizarStockService";
 import { useLocation } from "react-router-dom";
 
 const MovimientoStock = () => {

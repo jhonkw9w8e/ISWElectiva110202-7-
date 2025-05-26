@@ -3,7 +3,7 @@ import {
   createUsuario,
   getUsuarios,
   getRoles,
-} from "../../services/usuarioService";
+} from "../../services/crudServicesUsuario/usuarioService";
 
 const FormularioUsuario = () => {
   const [form, setForm] = useState({
