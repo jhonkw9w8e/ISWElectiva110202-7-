@@ -13,6 +13,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PGHOST: ${{secrets.PGHOST}}
+      PGUSER: ${{secrets.PGUSER}}
+      PGPASSWORD: ${{secrets.PGPASSWORD}}
+      PGDATABASE: ${{secrets.PGDATABASE}}
+      PGPORT: ${{secrets.PGPORT}}
     permissions:
       contents: read #This is required for actions/checkout
 

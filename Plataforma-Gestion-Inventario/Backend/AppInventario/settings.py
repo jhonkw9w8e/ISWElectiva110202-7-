@@ -89,10 +89,10 @@ WSGI_APPLICATION = 'AppInventario.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'Plataforma_Gestion_Inventario',
-        'USER':'postgres',
-        'PASSWORD':'postgres',
-        'HOST':'localhost',
+        'NAME':'postgres',
+        'USER':'postgresadmin',
+        'PASSWORD':'password8*9',
+        'HOST':'plataforma-gestion-inventario-postgresql.postgres.database.azure.com',
         'PORT':'5432'
     }
 }
