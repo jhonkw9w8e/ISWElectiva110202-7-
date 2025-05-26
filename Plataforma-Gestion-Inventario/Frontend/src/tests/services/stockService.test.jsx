@@ -1,7 +1,7 @@
 import axios from "axios";
-import { getStockByProducto } from "../components/stockService";
+import * as stockService from "../services/stockService";
 
-jest.mock("axios");
+vi.mock("axios");
 
 describe("stockService", () => {
   it("debe obtener stock por producto", async () => {
