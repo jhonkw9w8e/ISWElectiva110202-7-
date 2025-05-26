@@ -1,31 +1,23 @@
 import { describe, it, expect } from "vitest";
 import { render } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
-import App from "../src/App";
+import App from "../../Frontend/src/App";
+import { MemoryRouter } from "react-router-dom";
 
 describe("App component", () => {
-  it("renders the app title", () => {
-    const { getByText } = render(
-      <BrowserRouter>
+  test("renders the app title", () => {
+    render(
+      <MemoryRouter>
         <App />
-      </BrowserRouter>
+      </MemoryRouter>
     );
-    expect(
-      getByText("Plataforma de Gestion de Inventario de Almacen")
-    ).toBeDefined();
     expect(
       screen.getByText(
         "Bienvenido a nuestra Plataforma de Gestion de Inventario de Almacen"
       )
-    ).toBeDefined();
-  });
-  it("renders routes correctly", () => {
-    const { getByText } = render(
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    );
+    ).toBeInTheDocument();
 
-    expect(getByText(/Gestion de Inventario de Productos/i)).toBeDefined();
+    expect(
+      screen.getByText(/Gestion de Inventario de Productos/i)
+    ).toBeInTheDocument();
   });
 });

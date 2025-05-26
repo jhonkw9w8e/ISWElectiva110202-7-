@@ -1,10 +1,10 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import UsuarioForm from "../../components/FormularioUsuario";
+import * as UsuarioService from "../../services/usuarioService";
 import { vi } from "vitest";
 
-vi.mock("../services/usuarioService", () => ({
-  createUsuario: vi.fn(),
-  getRoles: vi.fn(() => Promise.resolve([{ id: 1, nombre: "Admin" }])),
+vi.mock("../../services/usuarioService", () => ({
+  getUsuarios: vi.fn().mockResolvedValue([]),
+  getRoles: vi.fn().mockResolvedValue([]),
 }));
 
 describe("UsuarioForm", () => {
