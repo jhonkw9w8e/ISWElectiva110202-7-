@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from .categoria import CategoriaProducto
 
 class Producto(models.Model):
@@ -9,11 +10,26 @@ class Producto(models.Model):
         blank=True,
         help_text="Codigo unico para cada producto"
     )
-    categoria = models.ForeignKey(CategoriaProducto, on_delete=models.CASCADE,related_name='Productos')
-    descripcion = models.CharField(blank=True)
-    precio = models.DecimalField(max_digits=10, decimal_places=0)
+    categoria = models.ForeignKey(
+        CategoriaProducto,
+        on_delete=models.CASCADE,
+        related_name='productos'
+    )
+    descripcion = models.CharField(max_length=255,blank=True)
+    precio = models.DecimalField(max_digits=10, decimal_places=2)
     stock = models.PositiveIntegerField(default=0)
     umbral_minimo = models.PositiveIntegerField(default=0)
-    
+    eliminado = models.BooleanField(default=False)
+    eliminado_temporal = models.BooleanField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        editable=False,
+        related_name='productos_actualizados'
+    )
     def __str__(self):
         return self.nombre
+    
+    
