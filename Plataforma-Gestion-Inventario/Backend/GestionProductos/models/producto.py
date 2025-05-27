@@ -21,6 +21,7 @@ class Producto(models.Model):
     umbral_minimo = models.PositiveIntegerField(default=0)
     eliminado = models.BooleanField(default=False)
     eliminado_temporal = models.BooleanField(default=0)
+    eliminado_at = models.DateTimeField(null=True,blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(
         settings.AUTH_USER_MODEL,
