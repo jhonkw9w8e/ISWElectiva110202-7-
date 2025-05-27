@@ -1,2 +1,2 @@
 from .categoria import CategoriaProductoAPIView
-from .producto import ProductoAPIView
+from .producto import ProductoAPIView, DeshacerElimancionAPIView, ConfirmarEliminacionAPIView
