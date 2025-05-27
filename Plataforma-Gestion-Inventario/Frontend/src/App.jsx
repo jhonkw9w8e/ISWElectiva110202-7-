@@ -1,12 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Inicio from "./pages/Inicio";
-import ActualizarStock from "./pages/ActualizarStock";
-import InventarioList from "./components/InventarioList";
-import RegistrarProducto from "./pages/RegistrarProducto";
-import RegistrarUsuario from "./pages/RegistrarUsuario";
-import HistorialTransferencias from "./pages/HistorialTransferencias";
-import TransferenciasPage from "./pages/TransferenciasPage";
+import RegistrarProducto from "./pages/crudProductosPages/RegistrarProducto";
 
 const App = () => {
   return (
@@ -20,17 +15,6 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/crear-producto" element={<RegistrarProducto />} />
-        <Route path="/actualizar-stock" element={<ActualizarStock />} />
-        <Route path="/registrar-usuario" element={<RegistrarUsuario />} />
-        <Route path="/lista-inventario" element={<InventarioList />} />
-        <Route
-          path="/historial-transferencias"
-          element={<HistorialTransferencias />}
-        />
-        <Route
-          path="/transferencias-almacenes"
-          element={<TransferenciasPage />}
-        />
       </Routes>
       <div>
         <p>
