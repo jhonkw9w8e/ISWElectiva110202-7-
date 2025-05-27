@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from models import CategoriaProducto
-from serializers import CategoriaProductoSerializer
+from ..models.categoria import CategoriaProducto
+from ..serializers.categoria import CategoriaProductoSerializer
 
 class CategoriaProductoAPIView(APIView):
     def get(self,request):
