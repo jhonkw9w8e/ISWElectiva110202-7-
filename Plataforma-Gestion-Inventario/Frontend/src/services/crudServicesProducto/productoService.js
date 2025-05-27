@@ -1,32 +1,23 @@
 import axios from "axios";
 const API_URL = import.meta.env.VITE_API_URL;
-export const createProducto = async (productoData) => {
+
+export const createProducto = async (data) => {
   try {
     const response = await axios.post(
-      `${API_URL}/producto/productos/`,
-      productoData,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
+      `${API_URL}/gestion-productos/productos/`,
+      data
     );
     return response.data;
   } catch (error) {
-    console.error("CREATE PRODUCT ERROR:", err.response?.data || err.message);
     throw error;
   }
 };
 
 export const getProducto = async () => {
   try {
-    const response = await axios.get(`${API_URL}/producto/productos/`);
+    const response = await axios.get(`${API_URL}/gestion-productos/productos/`);
     return response.data;
   } catch (error) {
-    console.error(
-      "Error al obtener los productos",
-      error.response ? error.response.data : error.message
-    );
     throw error;
   }
 };
