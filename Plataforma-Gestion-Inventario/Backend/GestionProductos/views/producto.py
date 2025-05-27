@@ -50,7 +50,7 @@ class ProductoAPIView(APIView):
             producto.save()
         return Response({"detalle":"Eliminación marcada.Puede deshacer en 10 minutos."},status=status.HTTP_200_OK)
     
-    class DeshacwerElimancionAPIView(APIView):
+class DeshacerElimancionAPIView(APIView):
         def post(self,request):
             ids = request.data.get('ids',[])
             productos = Producto.objects.filter(id__in=ids, eliminado_temporal=True)
@@ -60,7 +60,7 @@ class ProductoAPIView(APIView):
                 producto.save()
             return Response({"detalle":"Eliminación deshecha"},status=status.HTTP_200_OK)
         
-        class ConfirmarEliminacionAPIView(APIView):
+class ConfirmarEliminacionAPIView(APIView):
                 def post(self,request):
                     ahora = timezone.now()
                     productos = Producto.objects.filter(eliminado_temporal=True, eliminado_at__ite=ahora - timezone.timedelta(minutes=10))
