@@ -131,7 +131,7 @@ USE_TZ = True
 CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173'
+    'http://localhost:5173',
     'https://plataforma-gestion-inventario-backend-a7g6hng8ghgae0ba.canadacentral-01.azurewebsites.net',
 ]
 
