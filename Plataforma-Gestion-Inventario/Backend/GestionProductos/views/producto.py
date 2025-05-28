@@ -6,6 +6,7 @@ from rest_framework.exceptions import ValidationError
 from ..models.producto import Producto
 from ..serializers.producto import ProductoSerializer
 
+
 class ProductoAPIView(APIView):
     def get(self,request):
         productos = Producto.objects.select_related('categoria').filter(eliminado=False)
@@ -19,7 +20,8 @@ class ProductoAPIView(APIView):
                 raise ValidationError("El stock y el umbral mínimo deben ser mayores o iguales a cero.")
             if serializer.validated_data['precio'] <= 0:
                 raise ValidationError("El precio debe ser mayor que cero.")
-            serializer.save(created_by=request.user, updated_by=request.user)
+            usuario = request.user if request.user.is_authenticated else None
+            serializer.save(created_by=usuario, updated_by=usuario)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
@@ -33,9 +35,10 @@ class ProductoAPIView(APIView):
         if serializer.is_valid():
             if serializer.validated_data.get('stock',0) < 0 or serializer.validated_data.get('umbral_minimo',0) <0:
                  raise ValidationError("El stock y el umbral minimo deben ser mayores o iguales a cero.")
-            if serializer.validated_data('precio',1)<=0:
+            if serializer.validated_data.get('precio',1)<=0:
                 raise ValidationError("El precio debe ser mayor a cero.")
-            serializer.save(updated_by=request.user)
+            usuario = request.user if request.user.is_authenticated else None
+            serializer.save(updated_by=usuario)
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
