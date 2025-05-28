@@ -73,7 +73,7 @@ class ConfirmarEliminacionAPIView(APIView):
                         producto.save()
                     return Response({"detalle":"Eliminaciones confirmadas."},status=status.HTTP_200_OK)
                 
-class ProductoSearchAPIView():
+class ProductoSearchAPIView(APIView):
     def get(self,request):
         q = request.query_params.get("q","").strip()
         categoria_id = request.query_params.get("categoria_id")

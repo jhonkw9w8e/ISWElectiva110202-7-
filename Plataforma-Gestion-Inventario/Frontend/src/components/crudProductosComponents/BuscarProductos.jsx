@@ -1,19 +1,29 @@
 import React, { useState } from "react";
-import { getProducto } from "../../services/crudServicesProducto/productoService";
+import { buscarProductos } from "../../services/crudServicesProducto/productoService";
+
+const CATEGORIAS = [
+  { id: 1, nombre: "Equipos Tecnlogicos" },
+  { id: 2, nombre: "Ropa de Seguridad Industrial" },
+  { id: 3, nombre: "Aparatos Electrónicos" },
+];
 
 const BuscarProductos = () => {
   const [query, setQuery] = useState("");
-  const [productos, setProductos] = useState([]);
+  const [categoriaId, setCategoriaId] = useState("");
+  const [resultados, setResultados] = useState([]);
   const [error, setError] = useState("");
 
   const handleBuscar = async () => {
     try {
-      const resultado = await getProducto(query);
-      setProductos(resultado);
+      const data = await buscarProductos({
+        q: query,
+        categoriaId: categoriaId,
+      });
+      setResultados(data);
       setError("");
     } catch (err) {
       setError("Producto no encontrado.");
-      setProductos([]);
+      setResultados([]);
     }
   };
 
@@ -26,32 +36,45 @@ const BuscarProductos = () => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
+      <option value="">Todas las Categorias</option>
+      {CATEGORIAS.map((c) => (
+        <option key={c.id} value={c.id}>
+          {c.nombre}
+        </option>
+      ))}
+
       <button onClick={handleBuscar}>Buscar</button>
 
-      {error && <p>{error}</p>}
+      {error && <p className="text-red-500 mb-4">{error}</p>}
 
-      {productos.length > 0 && (
-        <table>
-          <thead>
+      {resultados.length > 0 && (
+        <table className="min-w-full divide-y divide-gray-200">
+          <thead className="bg-gray-50">
             <tr>
-              <th>Nombre</th>
-              <th>Código</th>
-              <th>Categoría</th>
-              <th>Precio</th>
+              {["ID", "Nombre", "Codigo", "Categoría", "Precio", "Stock"].map(
+                (h) => (
+                  <th key={h} className="px-4 py-2 text-sm font-medium">
+                    {h}
+                  </th>
+                )
+              )}
             </tr>
           </thead>
           <tbody>
-            {productos.map((producto) => (
-              <tr key={producto.id}>
-                <td>{producto.nombre}</td>
-                <td>{producto.codigo}</td>
-                <td>{producto.categoria.nombre}</td>
-                <td>{producto.precio}</td>
+            {resultados.map((p) => (
+              <tr key={p.id}>
+                <td>{p.id}</td>
+                <td>{p.nombre}</td>
+                <td>{p.codigo}</td>
+                <td>{p.categoria.nombre}</td>
+                <td>{p.precio}</td>
+                <td>{p.stock}</td>
               </tr>
             ))}
           </tbody>
         </table>
       )}
+      {resultados.length === 0 && !error && <p>No se encontraron productos</p>}
     </div>
   );
 };
