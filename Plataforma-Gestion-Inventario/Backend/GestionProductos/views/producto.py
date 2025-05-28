@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.utils import timezone
+from django.db.models import Q
 from rest_framework.exceptions import ValidationError
 from ..models.producto import Producto
 from ..serializers.producto import ProductoSerializer
@@ -71,4 +72,17 @@ class ConfirmarEliminacionAPIView(APIView):
                         producto.eliminado = True
                         producto.save()
                     return Response({"detalle":"Eliminaciones confirmadas."},status=status.HTTP_200_OK)
+                
+class ProductoSearchAPIView():
+    def get(self,request):
+        q = request.query_params.get("q","").strip()
+        categoria_id = request.query_params.get("categoria_id")
+        filtros = Q(eliminado=False)
+        if q:
+            filtros &= Q(nombre__icontains=q) | Q(codigo__icontains=q)
+        if categoria_id:
+            filtros &= Q(categoria_id=categoria_id)
+        productos = Producto.objects.select_related("categoria").filter(filtros)
+        serializer = ProductoSerializer(productos,many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
                 
