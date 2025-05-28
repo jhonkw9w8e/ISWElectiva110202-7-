@@ -19,6 +19,11 @@ class Producto(models.Model):
     precio = models.DecimalField(max_digits=10, decimal_places=2)
     stock = models.PositiveIntegerField(default=0)
     umbral_minimo = models.PositiveIntegerField(default=0)
+    ubicacion = models.CharField(
+        max_length=100,
+        blank=True,
+        help_text="Almacen del producto"
+    )
     eliminado = models.BooleanField(default=False)
     eliminado_temporal = models.BooleanField(default=0)
     eliminado_at = models.DateTimeField(null=True,blank=True)
