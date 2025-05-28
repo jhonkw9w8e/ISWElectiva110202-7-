@@ -1,0 +1,1 @@
+from .TipoMovimiento import TipoMovimientoSerializer
