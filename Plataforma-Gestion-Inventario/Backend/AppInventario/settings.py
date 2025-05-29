@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'GestionProductos',
     'GestionUsuarios',
     'GestionMovimientos',
-    'corsheaders'
+    'corsheaders',
+    'rest_framework'
 ]
 
 
