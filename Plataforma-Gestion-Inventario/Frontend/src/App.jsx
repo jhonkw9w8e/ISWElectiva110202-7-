@@ -2,6 +2,10 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Inicio from "./pages/Inicio";
 import RegistrarProducto from "./pages/crudProductosPages/RegistrarProducto";
+import ActualizarStock from "./pages/crudProductosPages/ActualizarStock";
+import BusquedadeProductos from "./pages/crudProductosPages/BusquedaProductos";
+import RegistrarUsuario from "./pages/crudUsuariosPages/RegistrarUsuario";
+import Movimientos from "./pages/crudServicesPages/MovimientosPage";
 
 const App = () => {
   return (
@@ -15,7 +19,12 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/crear-producto" element={<RegistrarProducto />} />
+        <Route path="/actualizar-stock" element={<ActualizarStock />} />
+        <Route path="/busqueda-productos" element={<BusquedadeProductos />} />
+        <Route path="/registrar-usuario" element={<RegistrarUsuario />} />
+        <Route path="/movimientos" element={<Movimientos />} />
       </Routes>
+
       <div>
         <p>
           Aqui encontramos nuestro sistema de Gestion de Inventario de productos
