@@ -5,8 +5,8 @@ import RegistrarProducto from "./pages/crudProductosPages/RegistrarProducto";
 import ActualizarStock from "./pages/crudProductosPages/ActualizarStock";
 import BusquedadeProductos from "./pages/crudProductosPages/BusquedaProductos";
 import RegistrarUsuario from "./pages/crudUsuariosPages/RegistrarUsuario";
-import Movimientos from "./pages/crudServicesPages/MovimientosPage";
-import FormularioInforme from "./components/crudInformeComponents/FormularioInforme";
+import Movimientos from "./pages/crudMovimientosPages/MovimientosPage";
+import FormularioInforme from "./pages/crudInformePages/RegistrarInforme";
 import Transferencia from "./pages/crudTransferenciasPages/Transferencia";
 
 const App = () => {
