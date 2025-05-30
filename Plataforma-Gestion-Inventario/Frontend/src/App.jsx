@@ -5,7 +5,9 @@ import RegistrarProducto from "./pages/crudProductosPages/RegistrarProducto";
 import ActualizarStock from "./pages/crudProductosPages/ActualizarStock";
 import BusquedadeProductos from "./pages/crudProductosPages/BusquedaProductos";
 import RegistrarUsuario from "./pages/crudUsuariosPages/RegistrarUsuario";
-import Movimientos from "./pages/crudMovimientosPages/MovimientosPage";
+import Movimientos from "./pages/crudServicesPages/MovimientosPage";
+import AlmacenesCRUD from "./components/crudTransferenciasComponents/AlmacenesCRUD";
+import FormularioInforme from "./components/crudInformeComponents/FormularioInforme";
 
 const App = () => {
   return (
@@ -23,6 +25,8 @@ const App = () => {
         <Route path="/busqueda-productos" element={<BusquedadeProductos />} />
         <Route path="/registrar-usuario" element={<RegistrarUsuario />} />
         <Route path="/movimientos" element={<Movimientos />} />
+        <Route path="/informe" element={<FormularioInforme />} />
+        <Route path="/transferencias" element={<AlmacenesCRUD />} />
       </Routes>
 
       <div>
