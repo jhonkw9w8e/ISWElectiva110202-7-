@@ -27,3 +27,15 @@ class TransferenciaSerializer(serializers.ModelSerializer):
     usuario_id = serializers.PrimaryKeyRelatedField(
         queryset= Usuario.objects.all(),source='usuario',write_only=True
     )
+    
+    class Meta:
+        model = Transferencia
+        fields = [
+            'id', 'producto', 'producto_id',
+            'almacen_origen', 'almacen_origen_id',
+            'almacen_destino', 'almacen_destino_id',
+            'cantidad', 'fecha',
+            'usuario', 'usuario_id',
+            'comentario',
+        ]
+    
