@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
   getProducto,
   updateProducto,
-} from "../services/crudServicesProducto/productoService";
+} from "../../services/crudServicesProducto/ProductoService";
 
 const ActualizarStock = () => {
   const [productos, setProductos] = useState([]);
