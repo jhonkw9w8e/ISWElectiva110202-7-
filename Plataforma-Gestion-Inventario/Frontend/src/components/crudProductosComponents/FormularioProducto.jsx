@@ -1,33 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   createProducto,
   updateProducto,
+  deshacerEliminacion,
 } from "../../services/crudServicesProducto/productoService";
 
-const FormularioProducto = ({ productoEditar }) => {
-  const [nombre, setNombre] = useState(productoEditar?.nombre || "");
-  const [codigo, setCodigo] = useState(productoEditar?.codigo || "");
-  const [precio, setPrecio] = useState(productoEditar?.precio || "");
-  const [categoriaId, setCategoriaId] = useState(
-    productoEditar?.categoria.id || ""
-  );
-  const [descripcion, setDescripcion] = useState(
-    productoEditar?.descripcion || ""
-  );
-  const [stock, setStock] = useState(productoEditar?.stock || "");
-  const [umbralMinimo, setUmbralMinimo] = useState(
-    productoEditar?.umbral_minimo || ""
-  );
+export default function FormularioProducto({ productoEditar, onSaved }) {
+  const [nombre, setNombre] = useState("");
+  const [codigo, setCodigo] = useState("");
+  const [precio, setPrecio] = useState("");
+  const [categoriaId, setCategoriaId] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+  const [stock, setStock] = useState("");
+  const [umbralMinimo, setUmbralMinimo] = useState("");
   const [mensaje, setMensaje] = useState("");
-
-  // Aquí defines tu array de IDs (1…5 por ejemplo)
   const categoriaOptions = [1, 2, 3, 4, 5];
+
+  useEffect(() => {
+    if (productoEditar) {
+      setNombre(productoEditar.nombre || "");
+      setCodigo(productoEditar.codigo || "");
+      setPrecio(productoEditar.precio || "");
+      setCategoriaId(productoEditar.categoria?.id || "");
+      setDescripcion(productoEditar.descripcion || "");
+      setStock(productoEditar.stock || "");
+      setUmbralMinimo(productoEditar.umbral_minimo || "");
+    }
+  }, [productoEditar]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMensaje("");
-
-    const payload = {
+    const data = {
       nombre: nombre.trim(),
       codigo: codigo.trim(),
       precio: parseFloat(precio),
@@ -36,34 +40,45 @@ const FormularioProducto = ({ productoEditar }) => {
       stock: Number(stock),
       umbral_minimo: Number(umbralMinimo),
     };
-
-    if (!payload.nombre || !payload.codigo) {
+    if (!data.nombre || !data.codigo) {
       setMensaje("Nombre y código son obligatorios.");
       return;
     }
-    if (payload.precio <= 0) {
+    if (data.precio <= 0) {
       setMensaje("El precio debe ser mayor a cero.");
       return;
     }
-    if (payload.stock < 0 || payload.umbral_minimo < 0) {
+    if (data.stock < 0 || data.umbral_minimo < 0) {
       setMensaje("Stock y umbral mínimo no pueden ser negativos.");
       return;
     }
-
     try {
       if (productoEditar) {
-        await updateProducto(productoEditar.id, payload);
+        await updateProducto(productoEditar.id, data);
+        if (onSaved) onSaved();
       } else {
-        await createProducto(payload);
+        await createProducto(data);
+        if (onSaved) onSaved();
       }
-      setMensaje("✅ Producto guardado correctamente.");
+      setMensaje("✅ Operación completada correctamente.");
     } catch (err) {
-      const errorData = err.response?.data;
+      const errData = err.response?.data;
       setMensaje(
-        errorData
-          ? Object.values(errorData).flat().join(" ")
-          : "Error inesperado al guardar."
+        errData
+          ? Object.values(errData).flat().join(" ")
+          : "Error inesperado en la operación."
       );
+    }
+  };
+
+  const handleRevertir = async () => {
+    if (!productoEditar?.id) return;
+    try {
+      await deshacerEliminacion([productoEditar.id]);
+      if (onSaved) onSaved();
+      setMensaje("Producto Guardado correctamente.");
+    } catch {
+      setMensaje("Error, vuelva a intentarlo.");
     }
   };
 
@@ -111,7 +126,7 @@ const FormularioProducto = ({ productoEditar }) => {
       </div>
 
       <div>
-        <label className="block mb-1">Categoría ID</label>
+        <label className="block mb-1">Categoría</label>
         <select
           value={categoriaId}
           onChange={(e) => setCategoriaId(e.target.value)}
@@ -119,9 +134,9 @@ const FormularioProducto = ({ productoEditar }) => {
           required
         >
           <option value="">-- Selecciona --</option>
-          {categoriaOptions.map((_, idx) => (
-            <option key={idx} value={categoriaOptions[idx]}>
-              {idx + 1}
+          {categoriaOptions.map((id) => (
+            <option key={id} value={id}>
+              {id}
             </option>
           ))}
         </select>
@@ -165,9 +180,17 @@ const FormularioProducto = ({ productoEditar }) => {
         {productoEditar ? "Actualizar" : "Registrar"}
       </button>
 
+      {productoEditar?.eliminado_temporal && (
+        <button
+          type="button"
+          onClick={handleRevertir}
+          className="w-full bg-yellow-400 text-white py-2 rounded hover:bg-yellow-500"
+        >
+          Revertir Eliminación
+        </button>
+      )}
+
       {mensaje && <p className="mt-4 text-center text-red-600">{mensaje}</p>}
     </form>
   );
-};
-
-export default FormularioProducto;
+}
