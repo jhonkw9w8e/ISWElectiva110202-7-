@@ -3,8 +3,8 @@ import {
   getMovimientos,
   createMovimiento,
   deleteMovimiento,
-} from "../../services/crudServicesMovimientoStock/MovimientoStockService";
-import { getTiposMovimiento } from "../../services/crudServicesTipoMovimiento/TipoMovimientoService";
+} from "../../services/crudServicesMovimiento/movimientoStockService";
+import { getTiposMovimiento } from "../../services/crudServicesMovimiento/tipoMovimientoService";
 
 const FormularioMovimientoStock = () => {
   const [movimientos, setMovimientos] = useState([]);

@@ -5,7 +5,7 @@ import {
   updateUsuario,
   deleteUsuario,
   getUsuarioById,
-} from "../../services/crudServicesUsuario/UsuarioService";
+} from "../../services/crudServicesUsuarios/usuarioService";
 
 const ROLES = [
   { value: "admin", label: "Administrador" },
