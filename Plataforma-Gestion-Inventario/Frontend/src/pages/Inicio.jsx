@@ -12,6 +12,18 @@ export default function Inicio() {
           <li>
             <Link to="/crear-producto">Crear Producto</Link>
           </li>
+          <li>
+            <Link to="/actualizar-stock">Actualizar stock</Link>
+          </li>
+          <li>
+            <Link to="/busqueda-productos">Buscar Productos</Link>
+          </li>
+          <li>
+            <Link to="/registrar-usuario">Registrar Usuario</Link>
+          </li>
+          <li>
+            <Link to="/movimientos">Movimientos</Link>
+          </li>
         </ul>
       </nav>
     </div>
