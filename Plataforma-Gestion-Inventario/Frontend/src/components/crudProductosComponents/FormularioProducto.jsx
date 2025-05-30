@@ -60,13 +60,13 @@ export default function FormularioProducto({ productoEditar, onSaved }) {
         await createProducto(data);
         if (onSaved) onSaved();
       }
-      setMensaje("✅ Operación completada correctamente.");
+      setMensaje("Producto Registrado correctamente.");
     } catch (err) {
       const errData = err.response?.data;
       setMensaje(
         errData
           ? Object.values(errData).flat().join(" ")
-          : "Error inesperado en la operación."
+          : "Error al registrar producto."
       );
     }
   };
@@ -83,114 +83,115 @@ export default function FormularioProducto({ productoEditar, onSaved }) {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="max-w-md mx-auto p-6 bg-white rounded shadow space-y-4"
-    >
-      <h2 className="text-2xl font-semibold text-center">
-        {productoEditar ? "Editar Producto" : "Crear Producto"}
-      </h2>
+    <div className="min-h-screen bg-white flex justify-center items-center p-4">
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <h2 className="text-2xl font-semibold text-center">
+          {productoEditar ? "Editar Producto" : "Crear Producto"}
+        </h2>
 
-      <div>
-        <label className="block mb-1">Nombre</label>
-        <input
-          type="text"
-          value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
-          className="w-full border p-2 rounded"
-          required
-        />
-      </div>
+        <div>
+          <label className="block font-bold mb-1 text-black">Nombre</label>
+          <input
+            type="text"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
+            className="w-full px-2 h-10 bg-[#D9D9D9] border border-black rounded"
+            required
+          />
+        </div>
 
-      <div>
-        <label className="block mb-1">Código</label>
-        <input
-          type="text"
-          value={codigo}
-          onChange={(e) => setCodigo(e.target.value)}
-          className="w-full border p-2 rounded"
-          required
-        />
-      </div>
+        <div>
+          <label className="block font-bold mb-1 text-black">Código</label>
+          <input
+            type="text"
+            value={codigo}
+            onChange={(e) => setCodigo(e.target.value)}
+            className="w-full px-2 h-10 bg-[#D9D9D9] border border-black rounded"
+            required
+          />
+        </div>
 
-      <div>
-        <label className="block mb-1">Precio</label>
-        <input
-          type="number"
-          step="0.01"
-          value={precio}
-          onChange={(e) => setPrecio(e.target.value)}
-          className="w-full border p-2 rounded"
-          required
-        />
-      </div>
+        <div>
+          <label className="block font-bold mb-1 text-black">Precio</label>
+          <input
+            type="number"
+            step="0.01"
+            value={precio}
+            onChange={(e) => setPrecio(e.target.value)}
+            className="w-full px-2 h-10 bg-[#D9D9D9] border border-black rounded"
+            required
+          />
+        </div>
 
-      <div>
-        <label className="block mb-1">Categoría</label>
-        <select
-          value={categoriaId}
-          onChange={(e) => setCategoriaId(e.target.value)}
-          className="w-full border p-2 rounded"
-          required
-        >
-          <option value="">-- Selecciona --</option>
-          {categoriaOptions.map((id) => (
-            <option key={id} value={id}>
-              {id}
-            </option>
-          ))}
-        </select>
-      </div>
+        <div>
+          <label className="block font-bold mb-1 text-black">Categoría</label>
+          <select
+            value={categoriaId}
+            onChange={(e) => setCategoriaId(e.target.value)}
+            className="w-full px-2 h-10 bg-[#D9D9D9] border border-black rounded"
+            required
+          >
+            <option value="">-- Selecciona --</option>
+            {categoriaOptions.map((id) => (
+              <option key={id} value={id}>
+                {id}
+              </option>
+            ))}
+          </select>
+        </div>
 
-      <div>
-        <label className="block mb-1">Descripción</label>
-        <textarea
-          value={descripcion}
-          onChange={(e) => setDescripcion(e.target.value)}
-          className="w-full border p-2 rounded"
-        />
-      </div>
+        <div>
+          <label className="block font-bold mb-1 text-black">Descripción</label>
+          <textarea
+            value={descripcion}
+            onChange={(e) => setDescripcion(e.target.value)}
+            className="w-full px-2 h-10 bg-[#D9D9D9] border border-black rounded"
+          />
+        </div>
 
-      <div>
-        <label className="block mb-1">Stock</label>
-        <input
-          type="number"
-          value={stock}
-          onChange={(e) => setStock(e.target.value)}
-          className="w-full border p-2 rounded"
-          required
-        />
-      </div>
+        <div>
+          <label className="block font-bold mb-1 text-black">Stock</label>
+          <input
+            type="number"
+            value={stock}
+            onChange={(e) => setStock(e.target.value)}
+            className="w-full px-2 h-10 bg-[#D9D9D9] border border-black rounded"
+            required
+          />
+        </div>
 
-      <div>
-        <label className="block mb-1">Umbral mínimo</label>
-        <input
-          type="number"
-          value={umbralMinimo}
-          onChange={(e) => setUmbralMinimo(e.target.value)}
-          className="w-full border p-2 rounded"
-          required
-        />
-      </div>
+        <div>
+          <label className="block font-bold mb-1 text-black">
+            Umbral mínimo
+          </label>
+          <input
+            type="number"
+            value={umbralMinimo}
+            onChange={(e) => setUmbralMinimo(e.target.value)}
+            className="w-full px-2 h-10 bg-[#D9D9D9] border border-black rounded"
+            required
+          />
+        </div>
 
-      <button
-        type="submit"
-        className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700"
-      >
-        {productoEditar ? "Actualizar" : "Registrar"}
-      </button>
-
-      {productoEditar?.eliminado_temporal && (
         <button
-          type="button"
-          onClick={handleRevertir}
-          className="w-full bg-yellow-400 text-white py-2 rounded hover:bg-yellow-500"
+          type="submit"
+          className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700"
         >
-          Revertir Eliminación
+          {productoEditar ? "Actualizar" : "Registrar"}
         </button>
-      )}
 
-      {mensaje && <p className="mt-4 text-center text-red-600">{mensaje}</p>}
-    </form>
+        {productoEditar?.eliminado_temporal && (
+          <button
+            type="button"
+            onClick={handleRevertir}
+            className="w-full bg-yellow-400 text-white py-2 rounded hover:bg-yellow-500"
+          >
+            Revertir Eliminación
+          </button>
+        )}
+
+        {mensaje && <p className="mt-4 text-center text-red-600">{mensaje}</p>}
+      </form>
+    </div>
   );
 }
