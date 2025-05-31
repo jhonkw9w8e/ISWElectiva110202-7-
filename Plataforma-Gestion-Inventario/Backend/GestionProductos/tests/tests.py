@@ -8,3 +8,4 @@ class ProductoModelTest(TestCase):
         )
         self.assertEqual(producto.nombre, "Monitor")
         self.assertEqual(producto.precio, 300.00)
+
