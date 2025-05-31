@@ -1,2 +1,0 @@
-from .TipoMovimiento import TipoMovimientoAPIView
-from .MovmientoStock import MovimientoStockListAPIView

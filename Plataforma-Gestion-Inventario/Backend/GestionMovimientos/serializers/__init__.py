@@ -1,2 +1,0 @@
-from .TipoMovimiento import TipoMovimientoSerializer
-from .MovimientoStock import MovimientoStockSerializer
