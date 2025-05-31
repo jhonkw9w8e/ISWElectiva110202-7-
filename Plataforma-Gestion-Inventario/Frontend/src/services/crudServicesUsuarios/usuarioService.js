@@ -15,9 +15,9 @@ export const createUsuario = (data) => {
 };
 
 export const updateUsuario = (id, data) => {
-  return axios.get(`${API_URL}usuarios/${id}/`, data);
+  return axios.put(`${API_URL}/usuario/usuarios/${id}/`, data);
 };
 
 export const deleteUsuario = (id) => {
-  return axios.get(`${API_URL}usuarios/${id}/`);
+  return axios.delete(`${API_URL}/usuario/usuarios/${id}/`);
 };
