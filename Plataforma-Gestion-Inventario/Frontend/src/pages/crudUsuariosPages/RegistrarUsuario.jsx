@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import FormularioUsuario from "../../components/crudUsuariosComponents/Formulariou¿Usuario";
+import FormularioUsuario from "../../components/crudUsuariosComponents/FormularioUsuario";
 export default function RegistrarUsuario() {
   return (
     <main className="flex flex-col items-center min-h-screen p-4 bg-[#CCE6CC]">
