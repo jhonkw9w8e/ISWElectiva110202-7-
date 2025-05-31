@@ -1,7 +1,9 @@
 from rest_framework import serializers
-from ..models import Almacen
+from ..models.Almacen import Almacen,Transferencia
 from GestionUsuarios.models import Usuario
+from GestionProductos.models import Producto
 from GestionUsuarios.serializers import UsuarioSerializer
+from GestionProductos.serializers import ProductoSerializer
 
 class AlmacenSerializer(serializers.ModelSerializer):
     responsable = UsuarioSerializer(read_only=True)
@@ -11,4 +13,37 @@ class AlmacenSerializer(serializers.ModelSerializer):
     class Meta:
         model = Almacen
         fields =['id','nombre','ubicacion','responsable','responsable_id']
+        
+class TransferenciaSerializer(serializers.ModelSerializer):
+    producto = ProductoSerializer(read_only=True)
+    producto_id = serializers.PrimaryKeyRelatedField(
+        queryset=Producto.objects.all(),source='producto',write_only=True
+    )
+    
+    almacen_origen = AlmacenSerializer(read_only=True)
+    almacen_origen_id = serializers.PrimaryKeyRelatedField(
+        queryset = Almacen.objects.all(),source='almacen_origen',write_only=True
+    )
+    
+    almacen_destino = AlmacenSerializer(read_only=True)
+    almacen_destino_id = serializers.PrimaryKeyRelatedField(
+        queryset = Almacen.objects.all(),source='almacen_destino',write_only=True
+    )
+    1
+    usuario = UsuarioSerializer(read_only=True)
+    usuario_id = serializers.PrimaryKeyRelatedField(
+        queryset= Usuario.objects.all(),source='usuario',write_only=True
+    )
+    
+    class Meta:
+        model = Transferencia
+        fields = [
+            'id', 'producto', 'producto_id',
+            'almacen_origen', 'almacen_origen_id',
+            'almacen_destino', 'almacen_destino_id',
+            'cantidad', 'fecha',
+            'usuario', 'usuario_id',
+            'comentario',
+        ]
+    
     
