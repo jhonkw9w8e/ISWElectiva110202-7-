@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import FormularioUsuario from "../../components/crudUsuariosComponents/FormularioUsuario";
+import FormularioUsuario from "../../components/crudUsuariosComponents/Formulariousuario";
 export default function RegistrarUsuario() {
   return (
     <main className="flex flex-col items-center min-h-screen p-4 bg-[#CCE6CC]">
@@ -24,9 +24,6 @@ export default function RegistrarUsuario() {
             </li>
             <li>
               <Link to="/informe">Formulario Informe</Link>
-            </li>
-            <li>
-              <Link to="/transferencias">Historial Transferencias</Link>
             </li>
           </ul>
         </nav>

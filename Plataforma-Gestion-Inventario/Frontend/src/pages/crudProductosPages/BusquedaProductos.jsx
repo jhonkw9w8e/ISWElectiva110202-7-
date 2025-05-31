@@ -26,9 +26,6 @@ export default function BusquedadeProductos() {
             <li>
               <Link to="/informe">Formulario Informe</Link>
             </li>
-            <li>
-              <Link to="/transferencias">Historial Transferencias</Link>
-            </li>
           </ul>
         </nav>
       </div>
