@@ -5,9 +5,7 @@ import RegistrarProducto from "./pages/crudProductosPages/RegistrarProducto";
 import ActualizarStock from "./pages/crudProductosPages/ActualizarStock";
 import BusquedadeProductos from "./pages/crudProductosPages/BusquedaProductos";
 import RegistrarUsuario from "./pages/crudUsuariosPages/RegistrarUsuario";
-import Movimientos from "./pages/crudMovimientosPages/MovimientosPage";
 import FormularioInforme from "./pages/crudInformePages/RegistrarInforme";
-import Transferencia from "./pages/crudTransferenciasPages/Transferencia";
 
 const App = () => {
   return (
@@ -24,9 +22,7 @@ const App = () => {
         <Route path="/actualizar-stock" element={<ActualizarStock />} />
         <Route path="/busqueda-productos" element={<BusquedadeProductos />} />
         <Route path="/registrar-usuario" element={<RegistrarUsuario />} />
-        <Route path="/movimientos" element={<Movimientos />} />
         <Route path="/informe" element={<FormularioInforme />} />
-        <Route path="/transferencias" element={<Transferencia />} />
       </Routes>
 
       <div>
