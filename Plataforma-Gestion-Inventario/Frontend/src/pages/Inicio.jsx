@@ -21,14 +21,9 @@ export default function Inicio() {
           <li>
             <Link to="/registrar-usuario">Registrar Usuario</Link>
           </li>
-          <li>
-            <Link to="/movimientos">Movimientos</Link>
-          </li>
+
           <li>
             <Link to="/informe">Formulario Informe</Link>
-          </li>
-          <li>
-            <Link to="/transferencias">Historial Transferencias</Link>
           </li>
         </ul>
       </nav>
