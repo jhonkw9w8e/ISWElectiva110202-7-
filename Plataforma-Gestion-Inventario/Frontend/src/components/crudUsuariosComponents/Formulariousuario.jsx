@@ -218,3 +218,4 @@ const FormularioUsuario = () => {
     </div>
   );
 };
+export default FormularioUsuario;

@@ -35,6 +35,18 @@ class Producto(models.Model):
         editable=False,
         related_name='productos_actualizados'
     )
+    updated_at = models.DateTimeField(auto_now=True)
+
+    updated_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        editable=False,
+        related_name='productos_modificados'
+    )
+
+    
     def __str__(self):
         return self.nombre
     
